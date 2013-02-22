@@ -1,11 +1,15 @@
-
+require 'csv'
 
 module Report
 
-    def add(report_item)
+    def add_report_item(item, output_dir)
         # append the report item to the report
-        report_name = report_item.sitemap[report_item.sitemap.rindex("/")]
-        puts report_item
+        report_name = item.sitemap[item.sitemap.rindex("/"), item.sitemap.length] + ".csv"
+        path = output_dir + "/" + report_name
+        CSV.open(path, "a") do |csv|
+            csv << [item.code, item.url, item.endpoint]
+        end
+
     end
 
 end

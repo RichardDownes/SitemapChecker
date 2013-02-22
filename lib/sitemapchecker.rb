@@ -27,7 +27,7 @@ class SitemapChecker
                 if response.code == "301" || response.code == "302"
                     report_item.endpoint = response.header["location"]
                 end
-                puts report_item
+                add_report_item(report_item, args[:output_dir])
             end
         end
     end
