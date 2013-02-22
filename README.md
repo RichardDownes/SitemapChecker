@@ -1,0 +1,4 @@
+SitemapChecker
+==============
+
+For checking sitemaps
